@@ -1,0 +1,54 @@
+.header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex: 1;
+	padding-top: 16px;
+	padding-left: 60px;
+	padding-right: 90px;
+	position: relative;
+	background: transparent;
+	z-index: var(--z-fixed);
+}
+.menu {
+	display: flex;
+	flex: 1;
+	justify-content: space-between;
+}
+.menu-icon {
+	font-size: 28px;
+}
+.mobile-menu {
+	display: none;
+}
+.web-menu {
+	display: flex;
+}
+.logo {
+	display: flex;
+	font-size: 36px;
+	color: blueviolet;
+	font-weight: 800;
+}
+.nav__btns {
+	display: flex;
+	align-items: center;
+	column-gap: 1rem;
+}
+
+.nav__shop {
+	font-size: 1.8rem;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 720px) {
+	.mobile-menu {
+		display: flex;
+	}
+	.web-menu {
+		display: none;
+	}
+	.logo {
+		font-size: 24px;
+	}
+}

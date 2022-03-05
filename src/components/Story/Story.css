@@ -1,0 +1,32 @@
+.story__container {
+	row-gap: 7.5rem;
+}
+
+.story__title {
+	font-size: var(--h1-font-size);
+	margin-bottom: var(--mb-1);
+}
+
+.story__description {
+	margin-bottom: var(--mb-2-5);
+}
+
+.story__images {
+	position: relative;
+}
+
+.story__img,
+.story__square {
+	width: 350px;
+}
+
+.story__square {
+	height: 350px;
+	background-color: var(--first-color);
+}
+
+.story__img {
+	position: absolute;
+	left: 3rem;
+	top: -3rem;
+}
