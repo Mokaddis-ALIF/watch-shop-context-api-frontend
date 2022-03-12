@@ -1,6 +1,7 @@
 import React from 'react';
 import './HomeBanner.css';
 import Home from '../../assets/img/home.png';
+import { Link } from 'react-router-dom';
 
 const HomeBanner = () => {
 	return (
@@ -35,9 +36,11 @@ const HomeBanner = () => {
 						<span className="home__price">$1245</span>
 
 						<div className="home__btns">
-							<a href="#" className="button button--gray button--small">
-								Discover
-							</a>
+							<Link to="/discover">
+								<a href="#" className="button button--gray button--small">
+									Discover
+								</a>
+							</Link>
 
 							<button className="button home__button">Learn More</button>
 						</div>

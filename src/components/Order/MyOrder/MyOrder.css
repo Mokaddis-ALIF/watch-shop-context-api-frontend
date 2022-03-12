@@ -1,0 +1,83 @@
+.myOrders {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 4rem;
+}
+
+.myOrders_top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: center; */
+	gap: 3rem;
+	width: 90%;
+	margin-top: 2rem;
+	padding-top: 2rem;
+	font-size: var(--h2-font-size);
+	font-weight: var(--font-medium);
+}
+
+.userOrders {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	border-bottom: 1px solid var(--first-color);
+	padding-bottom: 2rem 0;
+}
+
+.user_orders {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.user_info {
+	display: flex;
+}
+
+.orderItem {
+	display: flex;
+
+	justify-content: space-between;
+}
+
+.myOrders_bottom {
+	margin-top: 4rem;
+	padding-top: 4rem;
+}
+
+/*table*/
+#customers {
+	border-collapse: collapse;
+	width: 90%;
+}
+
+#customers td,
+#customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: var(--text-color);
+	color: white;
+}
+
+.btn {
+	background-color: var(--first-color);
+	padding: 1rem;
+	border-radius: 6px;
+}

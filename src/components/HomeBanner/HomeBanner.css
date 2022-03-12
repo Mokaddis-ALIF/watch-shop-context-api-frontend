@@ -20,9 +20,6 @@
 	justify-self: flex-end;
 	transform: translateX(1.5rem);
 	position: absolute;
-
-	/* top: -20%;
-	right: -10%; */
 }
 
 .home__social {

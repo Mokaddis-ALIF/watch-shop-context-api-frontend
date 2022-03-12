@@ -1,15 +1,22 @@
-import React from 'react';
-import Backdrop from '../components/Cart/Backdrop';
-import Cart from '../components/Cart/Cart';
+import React, { useEffect, useState } from 'react';
+
 import Featured from '../components/Featured/Featured';
 import HomeBanner from '../components/HomeBanner/HomeBanner';
 import NewsLetter from '../components/NewsLetter/NewsLetter';
 import Products from '../components/Products/Products';
 import Story from '../components/Story/Story';
-// import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import NewProducts from '../components/NewProducts/NewProducts';
 
 const Home = ({ closeToggleSidebar, close, sidebar }) => {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		fetch(`http://localhost:5000/products`)
+			.then((res) => res.json())
+			.then((data) => setProducts(data));
+	}, []);
+
 	return (
 		<>
 			{/* <Header openSidebar={toggleSidebar} /> */}
@@ -19,11 +26,12 @@ const Home = ({ closeToggleSidebar, close, sidebar }) => {
 			)} */}
 			{/* {sidebar && <Cart sidebar={sidebar} closeSidebar={close} />} */}
 			<HomeBanner />
-			<Featured />
+			<Featured products={products} />
 			<Story />
-			<Products />
-			<NewProducts />
+			<Products products={products} />
+			<NewProducts products={products} />
 			<NewsLetter />
+			<Footer />
 		</>
 	);
 };

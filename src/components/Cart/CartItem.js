@@ -1,35 +1,32 @@
 import React from 'react';
 // import { BiTrash } from 'react-icons/bi';
+import './CartItem.css';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { AiOutlineMinus } from 'react-icons/ai';
 
-const CartItem = ({ name, price, id, quantity, img, onRemove, onAdd }) => {
+const CartItem = ({ name, price, quantity, img, onRemove, onAdd }) => {
+	console.log(img);
+
 	return (
 		<>
-			<article className="cart__card">
-				<div className="cart__box">
-					<img src={img} alt="" className="cart__img" />
-				</div>
-
+			<div className="cartItems">
+				<img src={img} alt="" className="cart__img" />
 				<div className="cart__details">
-					<h3 className="cart__title">{name}</h3>
-					<span className="cart__price">${price}</span>
-
-					<div className="cart__amount">
-						<div className="cart__amount-content">
-							<span className="cart__amount-box" onClick={onRemove}>
-								-
-							</span>
-
-							<span className="cart__amount-number">{quantity}</span>
-
-							<span className="cart__amount-box" onClick={onAdd}>
-								+
-							</span>
-						</div>
-
-						{/* <BiTrash className="cart__amount-trash" /> */}
-					</div>
+					<h2 className="cart__title">{name}</h2>
+					<h3 className="cart__price">${price}</h3>
 				</div>
-			</article>
+				<div className="cart__details__amount">
+					<span className="cart__amount-box" onClick={onRemove}>
+						<AiOutlineMinus />
+					</span>
+
+					<span className="cart__amount-number">{quantity}</span>
+
+					<span className="cart__amount-box" onClick={onAdd}>
+						<AiOutlinePlus />
+					</span>
+				</div>
+			</div>
 		</>
 	);
 };

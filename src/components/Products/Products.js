@@ -1,10 +1,9 @@
 import React from 'react';
 import './Products.css';
-import { productData } from '../Data/Data';
 import ProductItem from './ProductItem';
 
-const Products = () => {
-	const data = productData.slice(3, 7);
+const Products = ({ products }) => {
+	const data = products.slice(3, 7);
 	return (
 		<>
 			<section className="products section container" id="products">

@@ -1,11 +1,10 @@
 import React from 'react';
 import './Featured.css';
-import { productData } from '../Data/Data';
 
 import FeaturedProducts from './FeaturedProducts';
 
-const Featured = () => {
-	const data = productData.slice(0, 3);
+const Featured = ({ products }) => {
+	const data = products.slice(0, 3);
 
 	return (
 		<>

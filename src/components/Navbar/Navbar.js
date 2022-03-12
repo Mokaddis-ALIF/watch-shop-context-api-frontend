@@ -7,8 +7,11 @@ import { BsBag } from 'react-icons/bs';
 import { ImCross } from 'react-icons/im';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import CartContext from '../../store/cart-context';
+import useAuth from '../../Hooks/useAuth';
 
 function NavBar({ openSidebar }) {
+	const { user, logOut } = useAuth();
+
 	const [click, setClick] = useState(false);
 
 	const cartCtx = useContext(CartContext);
@@ -66,19 +69,42 @@ function NavBar({ openSidebar }) {
 						<li className="nav-item">
 							<NavLink
 								exact
-								to="/login"
+								to="/my-orders"
 								activeClassName="active"
 								className="nav-links"
 								onClick={handleClick}
 							>
-								Login
+								My Orders
 							</NavLink>
+						</li>
+						<li className="nav-item">
+							{user.email ? (
+								<NavLink
+									exact
+									to="/"
+									activeClassName="active"
+									className="nav-links"
+									onClick={logOut}
+								>
+									Logout
+								</NavLink>
+							) : (
+								<NavLink
+									exact
+									to="/login"
+									activeClassName="active"
+									className="nav-links"
+									onClick={handleClick}
+								>
+									Login
+								</NavLink>
+							)}
 						</li>
 					</ul>
 
 					<div className="nav__shop" id="cart-shop" onClick={openSidebar}>
 						{/* <BsHandbag id="cartBag__icon" /> */}
-						<NavLink exact to="/cart">
+						<NavLink style={{ color: 'inherit' }} exact to="/cart">
 							<BsBag id="cartBag__icon" />
 						</NavLink>
 						<span className="qty">{cartItemNumbers}</span>

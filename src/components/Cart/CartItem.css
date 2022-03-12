@@ -1,0 +1,36 @@
+.cartItems {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 2rem 1rem;
+	box-shadow: 1px solid var(--border-color);
+}
+
+.cart__img {
+	width: 70px;
+}
+
+.cart__price {
+	color: var(--first-color);
+}
+
+.cart__details {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.cart__details__amount {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.cart__amount-number {
+	font-size: 1.6rem;
+}
+
+.cart__amount-box {
+	font-size: 1.2rem;
+}

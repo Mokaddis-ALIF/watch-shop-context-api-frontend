@@ -12,6 +12,7 @@ const NewProductItem = ({ product }) => {
 			name: name,
 			amount: 1,
 			price: price,
+			img: img,
 		});
 	};
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import NewProductItem from './NewProductItem';
 import './NewProducts.css';
-import { productData } from '../Data/Data';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,8 +12,8 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper';
 
-const NewProducts = () => {
-	const data = productData.slice(5);
+const NewProducts = ({ products }) => {
+	const data = products.slice(5);
 
 	return (
 		<>

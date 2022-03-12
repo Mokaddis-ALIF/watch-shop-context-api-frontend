@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import './Cart.css';
-import { GrClose } from 'react-icons/gr';
 import CartItem from './CartItem';
 import CartContext from '../../store/cart-context';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 	const cartCtx = useContext(CartContext);
@@ -12,7 +12,7 @@ const Cart = () => {
 		0
 	);
 
-	const totalAmount = `${cartCtx.totalAmount}`;
+	const totalAmount = `$${cartCtx.totalAmount}`;
 
 	const cartItemAddHandler = (item) => {
 		cartCtx.addItem({ ...item, amount: 1 });
@@ -22,35 +22,56 @@ const Cart = () => {
 		cartCtx.removeItem(id);
 	};
 
+	const removeAllItemFromCart = () => {
+		cartCtx.clearCart();
+	};
+
 	return (
-		<div className="cart" id="cart">
-			<i className="bx bx-x cart__close" id="cart-close"></i>
+		<>
+			<div className="cart">
+				<h1 className="cart__title-center">My Cart</h1>
+				<div className="cart__screen">
+					{cartCtx.items.length === 0 ? (
+						<div id="cart__empty">
+							<h1>Your cart is empty</h1>
+						</div>
+					) : (
+						<>
+							<div className="cart_items">
+								{cartCtx.items.map((cart) => (
+									<CartItem
+										key={cart.id}
+										name={cart.name}
+										amount={cart.amount}
+										price={cart.price}
+										id={cart.id}
+										img={cart.img}
+										quantity={cart.amount}
+										onRemove={cartItemRemoveHandler.bind(null, cart.id)}
+										onAdd={cartItemAddHandler.bind(null, cart)}
+									/>
+								))}
+							</div>
 
-			<h2 className="cart__title-center">My Cart</h2>
-
-			<div className="cart__container">
-				{cartCtx.items.map((cart) => (
-					<CartItem
-						key={cart.id}
-						name={cart.name}
-						amount={cart.amount}
-						price={cart.price}
-						id={cart.id}
-						img={cart.img}
-						quantity={cart.amount}
-						onRemove={cartItemRemoveHandler.bind(null, cart.id)}
-						onAdd={cartItemAddHandler.bind(null, cart)}
-					/>
-				))}
+							<div className="cartScreen__right">
+								<div className="cartScreen__info">
+									<p>Subtotal ({cartItemNumbers}) items</p>
+									<p>Subtotal Amount: {totalAmount}</p>
+								</div>
+								<div className="cart_btn">
+									<Link to="/orders">
+										<button>Proceed To Order</button>
+									</Link>
+									<button onClick={removeAllItemFromCart}>
+										Remove all item
+									</button>
+								</div>
+							</div>
+						</>
+					)}
+				</div>
 			</div>
-
-			<div className="cart__prices">
-				<span className="cart__prices-item">
-					{cartItemNumbers ? cartItemNumbers : 'No'} items
-				</span>
-				<span className="cart__prices-total">${totalAmount}</span>
-			</div>
-		</div>
+		</>
 	);
 };
 

@@ -81,25 +81,23 @@
 }
 
 #cart-shop {
-	color: var(--first-color);
-	/* display: flex;
+	background: var(--first-color);
+	color: black;
+	display: flex;
 	justify-content: center;
-	align-items: center; */
+	align-items: center;
+	gap: 0.2rem;
+	padding: 0.5rem 1.5rem;
+	border-radius: 5px;
 }
 
 #cartBag__icon {
-	position: relative;
-	font-size: 2.3rem;
+	font-size: 1.5rem;
+	color: black;
 }
 
 .qty {
-	color: var(--text-color);
 	font-size: 1.2rem;
-
-	position: absolute;
-
-	top: 2rem;
-	right: 9.2rem;
 }
 
 @media screen and (max-width: 960px) {

@@ -1,73 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import useAuth from '../Hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 import './Login.css';
+import Home from '../../assets/img/home.png';
+import { NavLink } from 'react-router-dom';
 
 const Login = () => {
-	const { users, handleSignIn, setIsLoading } = useAuth();
+	const [loginData, setLoginData] = useState({});
+	const { user, loginUser, isLoading, authError, googleSignIn } = useAuth();
+
 	const location = useLocation();
 	const history = useHistory();
-	const ui = location.state?.from || '/shared';
 
 	const handleGoogleSignIn = () => {
-		handleSignIn()
-			.then((res) => history.push(ui))
-			.finally(() => setIsLoading(false));
+		googleSignIn(location, history);
 	};
-	return (
-		<div id="login">
-			<div className="text-center text-warning">
-				<h1>Login here</h1>
-			</div>
 
-			<form className="w-50 mx-auto">
-				<div className="mb-3">
-					<label htmlFor="exampleInputEmail1" className="form-label">
-						Email address
-					</label>
+	const handleOnChange = (e) => {
+		const field = e.target.name;
+		const value = e.target.value;
+
+		const newLoginData = { ...loginData };
+		newLoginData[field] = value;
+		setLoginData(newLoginData);
+	};
+
+	const handleLoginSubmit = (e) => {
+		e.preventDefault();
+		loginUser(loginData.email, loginData.password, location, history);
+	};
+
+	return (
+		<>
+			<div className="form-container">
+				<form onSubmit={handleLoginSubmit}>
+					<h3>login now</h3>
+
 					<input
 						type="email"
-						className="form-control"
-						id="exampleInputEmail1"
-						aria-describedby="emailHelp"
+						name="email"
+						id="email"
 						required
+						onChange={handleOnChange}
+						placeholder="enter email"
+						className="box"
 					/>
-					<div id="emailHelp" className="form-text">
-						We'll never share your email with anyone else.
-					</div>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputPassword1" className="form-label">
-						Password
-					</label>
 					<input
 						type="password"
-						className="form-control"
-						id="exampleInputPassword1"
+						name="password"
+						id="password"
 						required
+						onChange={handleOnChange}
+						placeholder="enter password"
+						className="box"
 					/>
-				</div>
-
-				<button type="submit" className="btn btn-warning">
-					Login
-				</button>
-				<br />
-			</form>
-			<div className="text-center">OR</div>
-			<div className="text-center">
-				<button onClick={handleGoogleSignIn} className="btn btn-success my-5">
-					Login by Google
-				</button>
+					<div id="btns">
+						<button type="submit" id="login__btn">
+							Login
+						</button>
+						<button type="submit" id="login__btn" onClick={handleGoogleSignIn}>
+							Login by Google
+						</button>
+					</div>
+					{user.email && <p>User login done successfully</p>}
+					{authError && <p>{authError}</p>}
+					<p>
+						don't have an account?
+						<NavLink to="/register">Register now</NavLink>
+					</p>
+				</form>
+				<img src={Home} className="login__img" />
 			</div>
-
-			<div className="text-center">OR</div>
-			<center>
-				<Link className="text-primary" to="/register">
-					Register here
-				</Link>
-			</center>
-		</div>
+		</>
 	);
 };
 

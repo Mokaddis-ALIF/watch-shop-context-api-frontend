@@ -105,10 +105,6 @@ const Footer = () => {
 						</ul>
 					</div>
 				</div>
-
-				<span className="footer__copy">
-					&#169; Bedimcode. All rigths reserved
-				</span>
 			</footer>
 		</>
 	);
