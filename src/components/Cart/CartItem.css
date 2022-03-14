@@ -27,8 +27,14 @@
 	gap: 1rem;
 }
 
+.cart__details__amount button {
+	font-size: 1.6rem;
+	color: var(--first-color);
+}
+
 .cart__amount-number {
 	font-size: 1.6rem;
+	color: var(--first-color);
 }
 
 .cart__amount-box {

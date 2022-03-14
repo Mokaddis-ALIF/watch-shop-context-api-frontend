@@ -23,7 +23,7 @@
 
 .cart__screen {
 	display: flex;
-
+	flex-direction: row;
 	gap: 1rem;
 }
 
@@ -70,4 +70,17 @@
 
 .cartScreen__right div button:hover {
 	opacity: 0.9;
+}
+
+@media screen and (max-width: 600px) {
+	.cart__screen {
+		flex-direction: column-reverse;
+	}
+
+	.cartScreen__right {
+		background: #fff;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+		margin: 0 auto;
+		width: 300px;
+	}
 }

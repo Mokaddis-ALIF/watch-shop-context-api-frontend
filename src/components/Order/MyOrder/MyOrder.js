@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import './MyOrder.css';
 import CartContext from '../../../store/cart-context';
 import useAuth from '../../../Hooks/useAuth';
-import { Table } from 'react-bootstrap';
 
 const MyOrder = () => {
 	const cartCtx = useContext(CartContext);
@@ -11,19 +10,25 @@ const MyOrder = () => {
 	const { user } = useAuth();
 
 	const handleDelete = (id) => {
-		const url = `http://localhost:5000/orders/${id}`;
-		fetch(url, {
-			method: 'DELETE',
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data.deletedCount) {
-					alert('Your order has been successfully Deleted');
-					const remainingOrders = myOrders.filter((order) => order._id !== id);
-					setMyOrders(remainingOrders);
-				}
-			});
+		const proceed = window.confirm('Are you sure you want to delete?');
+
+		if (proceed) {
+			const url = `http://localhost:5000/orders/${id}`;
+			fetch(url, {
+				method: 'DELETE',
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					console.log(data);
+					if (data.deletedCount) {
+						alert('Your order has been successfully Deleted');
+						const remainingOrders = myOrders.filter(
+							(order) => order._id !== id
+						);
+						setMyOrders(remainingOrders);
+					}
+				});
+		}
 	};
 
 	useEffect(() => {

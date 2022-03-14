@@ -22,6 +22,10 @@ const Cart = () => {
 		cartCtx.removeItem(id);
 	};
 
+	const clearItemHandler = (id) => {
+		cartCtx.clearItem(id);
+	};
+
 	const removeAllItemFromCart = () => {
 		cartCtx.clearCart();
 	};
@@ -49,6 +53,7 @@ const Cart = () => {
 										quantity={cart.amount}
 										onRemove={cartItemRemoveHandler.bind(null, cart.id)}
 										onAdd={cartItemAddHandler.bind(null, cart)}
+										onClear={clearItemHandler.bind(null, cart.id)}
 									/>
 								))}
 							</div>

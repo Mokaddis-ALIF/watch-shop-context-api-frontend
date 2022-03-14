@@ -3,8 +3,9 @@ import React from 'react';
 import './CartItem.css';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { AiOutlineMinus } from 'react-icons/ai';
+import { MdDelete } from 'react-icons/md';
 
-const CartItem = ({ name, price, quantity, img, onRemove, onAdd }) => {
+const CartItem = ({ name, price, quantity, img, onRemove, onAdd, onClear }) => {
 	console.log(img);
 
 	return (
@@ -25,6 +26,9 @@ const CartItem = ({ name, price, quantity, img, onRemove, onAdd }) => {
 					<span className="cart__amount-box" onClick={onAdd}>
 						<AiOutlinePlus />
 					</span>
+					<button onClick={onClear}>
+						<MdDelete />
+					</button>
 				</div>
 			</div>
 		</>

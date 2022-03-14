@@ -52,6 +52,7 @@
 #customers {
 	border-collapse: collapse;
 	width: 90%;
+	margin-top: 3rem;
 }
 
 #customers td,
