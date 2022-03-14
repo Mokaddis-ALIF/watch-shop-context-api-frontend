@@ -13,7 +13,7 @@ const MyOrder = () => {
 		const proceed = window.confirm('Are you sure you want to delete?');
 
 		if (proceed) {
-			const url = `http://localhost:5000/orders/${id}`;
+			const url = `https://thawing-eyrie-47965.herokuapp.com/orders/${id}`;
 			fetch(url, {
 				method: 'DELETE',
 			})
@@ -34,7 +34,7 @@ const MyOrder = () => {
 	useEffect(() => {
 		cartCtx.clearCart();
 
-		fetch(`http://localhost:5000/orders`)
+		fetch(`https://thawing-eyrie-47965.herokuapp.com/orders`)
 			.then((res) => res.json())
 			.then((data) => setMyOrders(data));
 	}, []);
@@ -49,7 +49,7 @@ const MyOrder = () => {
 					<h1>You haven't ordered anything</h1>
 				) : (
 					<>
-						<h1>My orders</h1>
+						<h1 className="section__title">My orders</h1>
 
 						<table id="customers">
 							<tr>
@@ -89,7 +89,7 @@ const MyOrder = () => {
 						</table>
 
 						<div className="myOrders_bottom">
-							<h1>Payment system coming soon</h1>
+							<h1 className="section__title">Payment system coming soon</h1>
 						</div>
 					</>
 				)}

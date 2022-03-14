@@ -4,7 +4,7 @@ import './Blog.css';
 const Blog = () => {
 	return (
 		<div className="blog">
-			<h1>Coming soon</h1>
+			<h1 className="section__title">Coming soon</h1>
 		</div>
 	);
 };

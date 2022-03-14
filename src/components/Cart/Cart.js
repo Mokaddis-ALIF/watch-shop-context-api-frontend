@@ -33,7 +33,7 @@ const Cart = () => {
 	return (
 		<>
 			<div className="cart">
-				<h1 className="cart__title-center">My Cart</h1>
+				<h1 className="section__title">My Cart</h1>
 				<div className="cart__screen">
 					{cartCtx.items.length === 0 ? (
 						<div id="cart__empty">

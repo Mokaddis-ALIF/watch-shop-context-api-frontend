@@ -12,7 +12,7 @@ const Home = ({ closeToggleSidebar, close, sidebar }) => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/products`)
+		fetch(`https://thawing-eyrie-47965.herokuapp.com/products`)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
 	}, []);

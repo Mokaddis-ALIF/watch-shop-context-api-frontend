@@ -13,8 +13,8 @@ const Footer = () => {
 						<h3 className="footer__title">Our information</h3>
 
 						<ul className="footer__list">
-							<li>1234 - Peru</li>
-							<li>La Libertad 43210</li>
+							<li>1234 - BD</li>
+							<li>Chittagong</li>
 							<li>123-456-789</li>
 						</ul>
 					</div>
@@ -51,22 +51,22 @@ const Footer = () => {
 						<ul className="footer__links">
 							<li>
 								<a href="#" className="footer__link">
-									Road bikes
+									Rolex Oyster Perpetual
 								</a>
 							</li>
 							<li>
 								<a href="#" className="footer__link">
-									Mountain bikes
+									Rolex Explorer I
 								</a>
 							</li>
 							<li>
 								<a href="#" className="footer__link">
-									Electric
+									Rolex Submariner
 								</a>
 							</li>
 							<li>
 								<a href="#" className="footer__link">
-									Accesories
+									Rolex Day-Date
 								</a>
 							</li>
 						</ul>

@@ -3,6 +3,10 @@
 	height: 80vh;
 }
 
+.cart h1 {
+	margin-top: 3rem;
+}
+
 .cart__title-center {
 	text-align: center;
 	margin-top: 2rem;

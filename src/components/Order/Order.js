@@ -32,7 +32,7 @@ const Order = () => {
 		data.order = orderData;
 		data.totalAmount = totalAmount;
 
-		fetch(`http://localhost:5000/orders`, {
+		fetch(`https://thawing-eyrie-47965.herokuapp.com/orders`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
