@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHistory, useLocation } from 'react-router';
+
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import Home from '../../../assets/img/home.png';
@@ -6,6 +8,9 @@ import Home from '../../../assets/img/home.png';
 import './Register.css';
 
 const Register = () => {
+	const location = useLocation();
+	const history = useHistory();
+
 	const [registerData, setRegisterData] = useState({});
 
 	const { user, registerUser, authError } = useAuth();
@@ -26,7 +31,7 @@ const Register = () => {
 			return;
 		}
 
-		registerUser(registerData.email, registerData.password);
+		registerUser(registerData.email, registerData.password, location, history);
 
 		e.preventDefault();
 	};
@@ -34,7 +39,7 @@ const Register = () => {
 	return (
 		<>
 			<div className="form-container">
-				<img src={Home} className="login__img" />
+				<img src={Home} alt="" className="login__img" />
 				<form onSubmit={handleRegisterSubmit}>
 					<h3>Register now</h3>
 

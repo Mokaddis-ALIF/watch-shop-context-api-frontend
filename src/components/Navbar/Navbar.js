@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { BsWatch } from 'react-icons/bs';
@@ -10,6 +10,8 @@ import CartContext from '../../store/cart-context';
 import useAuth from '../../Hooks/useAuth';
 
 function NavBar({ openSidebar }) {
+	const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
+
 	const { user, logOut } = useAuth();
 
 	const [click, setClick] = useState(false);
@@ -22,6 +24,21 @@ function NavBar({ openSidebar }) {
 	);
 
 	const handleClick = () => setClick(!click);
+
+	useEffect(() => {
+		if (cartCtx.items.length === 0) {
+			return;
+		}
+		setBtnIsHighlighted(true);
+
+		const timer = setTimeout(() => {
+			setBtnIsHighlighted(false);
+		}, 300);
+
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [cartCtx.items]);
 
 	return (
 		<>
@@ -102,7 +119,11 @@ function NavBar({ openSidebar }) {
 						</li>
 					</ul>
 
-					<div className="nav__shop" id="cart-shop" onClick={openSidebar}>
+					<div
+						className={btnIsHighlighted ? 'nav__shop bump' : 'nav__shop'}
+						id="cart-shop"
+						onClick={openSidebar}
+					>
 						{/* <BsHandbag id="cartBag__icon" /> */}
 						<NavLink style={{ color: 'inherit' }} exact to="/cart">
 							<BsBag id="cartBag__icon" />

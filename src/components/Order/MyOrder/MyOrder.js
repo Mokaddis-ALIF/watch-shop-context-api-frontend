@@ -37,7 +37,7 @@ const MyOrder = () => {
 		fetch(`https://thawing-eyrie-47965.herokuapp.com/orders`)
 			.then((res) => res.json())
 			.then((data) => setMyOrders(data));
-	}, []);
+	}, [cartCtx]);
 
 	const userOrders = myOrders.filter((order) => order.email === user.email);
 	console.log(userOrders);
@@ -46,7 +46,7 @@ const MyOrder = () => {
 		<>
 			<div className="myOrders">
 				{userOrders.length === 0 ? (
-					<h1>You haven't ordered anything</h1>
+					<h1 className="section__title">You haven't ordered anything</h1>
 				) : (
 					<>
 						<h1 className="section__title">My orders</h1>
