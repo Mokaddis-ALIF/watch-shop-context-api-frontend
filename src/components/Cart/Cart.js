@@ -12,7 +12,7 @@ const Cart = () => {
 		0
 	);
 
-	const totalAmount = `$${cartCtx.totalAmount}`;
+	const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
 
 	const cartItemAddHandler = (item) => {
 		cartCtx.addItem({ ...item, amount: 1 });

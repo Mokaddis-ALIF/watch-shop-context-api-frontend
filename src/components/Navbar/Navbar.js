@@ -120,7 +120,7 @@ function NavBar({ openSidebar }) {
 					</ul>
 
 					<div
-						className={btnIsHighlighted ? 'nav__shop bump' : 'nav__shop'}
+						className={btnIsHighlighted ? 'cart bump' : ''}
 						id="cart-shop"
 						onClick={openSidebar}
 					>

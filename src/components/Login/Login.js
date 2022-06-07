@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import './Login.css';
 import Home from '../../assets/img/home.png';
-import { NavLink } from 'react-router-dom';
 
 const Login = () => {
 	const [loginData, setLoginData] = useState({});
@@ -67,7 +66,7 @@ const Login = () => {
 					{authError && <p>{authError}</p>}
 					<p>
 						don't have an account?
-						<NavLink to="/register">Register now</NavLink>
+						<Link to="/register">Register now</Link>
 					</p>
 				</form>
 				<img src={Home} className="login__img" />
